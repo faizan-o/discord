@@ -4,8 +4,6 @@ import { ChannelMessage, DirectMessage } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { MESSAGE_BATCH } from "@/constants";
 
-export const dynamic = "force-dynamic";
-
 export async function GET(req: Request) {
   const profile = getCurrentUserProfile();
   if (!profile) return new NextResponse("Unauthorized", { status: 500 });
