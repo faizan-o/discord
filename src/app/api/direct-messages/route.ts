@@ -1,5 +1,3 @@
-"use server";
-
 import { getCurrentUserProfile } from "@/data/profile";
 import { db } from "@/lib/db";
 import { ChannelMessage, DirectMessage } from "@prisma/client";
