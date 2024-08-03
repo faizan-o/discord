@@ -16,7 +16,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Discord",
+  title: "Discord Clone",
   description: "A modern chat application inspired by Discord.",
   openGraph: {
     title: "Discord Clone",
