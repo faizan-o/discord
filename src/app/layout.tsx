@@ -15,6 +15,26 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
+export const metadata = {
+  title: "Discord",
+  description: "A modern chat application inspired by Discord.",
+  openGraph: {
+    title: "Discord Clone",
+    description:
+      "Join the conversation with our Discord-inspired chat app. Connect, chat, and collaborate in real-time!",
+    url: "https://discord.vercel.app",
+    type: "website",
+    images: [
+      {
+        url: "https://discord.vercel.app/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Discord Clone Open Graph Image",
+      },
+    ],
+  },
+};
+
 const RootLayout = ({
   children,
 }: Readonly<{
@@ -40,7 +60,6 @@ const RootLayout = ({
             defaultTheme="dark"
             enableSystem={false}
             storageKey="application-theme"
-            
           >
             <ServerContextProvider>
               <SocketContextProvider>
