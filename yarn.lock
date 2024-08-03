@@ -491,7 +491,7 @@
   dependencies:
     "@bufbuild/protobuf" "^1.7.2"
 
-"@livekit/protocol@^1.19.0":
+"@livekit/protocol@^1.19.0", "@livekit/protocol@^1.19.3":
   version "1.19.3"
   resolved "https://registry.yarnpkg.com/@livekit/protocol/-/protocol-1.19.3.tgz#7a83fa7f3d838d6ba82c4ed2dbbbd8bf6206f7e1"
   integrity sha512-Oq/mbM+t9yjGVfu7X+wATSUlBU35LzU0zteeixXlSwAQb5s9BBlp2XxRztbbxUpuVWM9ZeQtsFppTE2xubNd5Q==
@@ -3323,7 +3323,7 @@ livekit-client@^2.4.2:
     typed-emitter "^2.1.0"
     webrtc-adapter "^9.0.0"
 
-livekit-server-sdk@^2.6.0:
+livekit-server-sdk@^2.1.2:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/livekit-server-sdk/-/livekit-server-sdk-2.6.0.tgz#6f47411a75a0ec9f2cd3afa899f37364e2dcede3"
   integrity sha512-lt9VZN8vTPG/P5tj4ofwLj/HTbt343AThbAWFk70OYbQucAOdv+8w00Wv9RjMndSkHaXheXOQHg8fhGOlYXmug==
@@ -4721,7 +4721,7 @@ tslib@2.4.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.1.tgz#0d0bfbaac2880b91e22df0768e55be9753a5b17e"
   integrity sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==
 
-tslib@2.6.3, tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.4.0:
+tslib@2.6.3, tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.3.tgz#0438f810ad7a9edcde7a241c3d80db693c8cbfe0"
   integrity sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==
