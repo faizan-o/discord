@@ -52,7 +52,9 @@ const MediaRoom = ({ audio, video, chatId }: MediaRoomProps) => {
       video={video}
       audio={audio}
     >
-      <VideoConference />
+      <div className="w-full flex justify-center pt-5 items-center">
+        <VideoConference className="md:w-[85%]" />
+      </div>
     </LiveKitRoom>
   );
 };

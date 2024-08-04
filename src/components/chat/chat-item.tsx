@@ -121,7 +121,7 @@ const ChatItem = ({
               <ActionToolTip side="top" label={member.role}>
                 {MemberRoleIconMap[member.role]}
               </ActionToolTip>
-              <span className="text-xs ml-2 text-zinc-500 dark:text-zinc-400">
+              <span className="line-clamp-1 text-xs ml-0 sm:ml-2 text-zinc-500 dark:text-zinc-400">
                 {timestamp}
               </span>
             </div>
