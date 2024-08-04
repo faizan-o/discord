@@ -66,7 +66,10 @@ const SendFileMessage = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-transparent border-none w-full h-full">
+      <DialogContent
+        className="bg-transparent border-none w-full h-full"
+        isModalDialog
+      >
         <DialogTitle className="hidden">Send File</DialogTitle>
         <div className="relative">
           <Wrapper

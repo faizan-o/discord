@@ -53,7 +53,7 @@ const CreateServer = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-transparent border-none w-full h-full">
+      <DialogContent className="bg-transparent border-none w-full h-full" isModalDialog>
         <DialogTitle className="hidden">Create Server</DialogTitle>
         <div className="relative">
           <Wrapper

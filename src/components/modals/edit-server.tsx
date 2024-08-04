@@ -74,7 +74,10 @@ const EditServer = () => {
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
       <DialogTrigger className="w-full flex"></DialogTrigger>
-      <DialogContent className="bg-transparent border-none w-full h-full">
+      <DialogContent
+        className="bg-transparent border-none w-full h-full"
+        isModalDialog
+      >
         <DialogTitle className="hidden">Create Server</DialogTitle>
         <div className="relative">
           <Wrapper

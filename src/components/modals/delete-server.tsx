@@ -47,7 +47,10 @@ const DeleteServer = () => {
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
       <DialogTrigger className="w-full flex"></DialogTrigger>
-      <DialogContent className="bg-transparent border-none w-full h-full">
+      <DialogContent
+        className="bg-transparent border-none w-full h-full"
+        isModalDialog
+      >
         <DialogTitle className="hidden">Leave Server</DialogTitle>
         <div className="relative">
           <Wrapper

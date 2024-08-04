@@ -140,7 +140,7 @@ const ManageMembers = () => {
                   <EllipsisVertical />
                 </div>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="px-1">
+              <DropdownMenuContent className="px-1" >
                 {role === MemberRole.MODERATOR && (
                   <DropdownMenuItem className="w-full" asChild>
                     <Button
@@ -182,7 +182,10 @@ const ManageMembers = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-transparent border-none w-full h-full">
+      <DialogContent
+        className="bg-transparent border-none w-full h-full"
+        isModalDialog
+      >
         <DialogTitle className="hidden">Manage Members</DialogTitle>
         <div className="relative">
           <Wrapper
@@ -211,7 +214,8 @@ const ManageMembers = () => {
                 {activeServer &&
                   activeServer.members
                     .filter(
-                      (member) => member.profile.id !== activeServer.adminProfileId
+                      (member) =>
+                        member.profile.id !== activeServer.adminProfileId
                     )
                     .map(({ profile, id, role }) => (
                       <UserProfile

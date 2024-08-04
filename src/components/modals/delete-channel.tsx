@@ -44,7 +44,10 @@ const DeleteChannel = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-transparent border-none w-full h-full">
+      <DialogContent
+        className="bg-transparent border-none w-full h-full"
+        isModalDialog
+      >
         <DialogTitle className="hidden">Update Channel</DialogTitle>
         <div className="relative">
           <Wrapper

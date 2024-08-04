@@ -42,7 +42,9 @@ const CreateChannel = () => {
 
   const [isPending, stratTransition] = useTransition();
 
-  const { serverId } = useParams();
+  const { serverId } = useParams() as {
+    serverId: string
+  };
   const { activeServer } = useServerContext();
 
   const onSubmit = (values: z.infer<typeof CreateChannelSchema>) => {
@@ -71,7 +73,7 @@ const CreateChannel = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-transparent border-none w-full h-full">
+      <DialogContent className="bg-transparent border-none w-full h-full" isModalDialog>
         <DialogTitle className="hidden">Create Server</DialogTitle>
         <div className="relative">
           <Wrapper
