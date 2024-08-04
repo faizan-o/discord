@@ -41,3 +41,5 @@ declare interface SocketAPIResponse extends NextApiResponse {
     };
   };
 }
+
+declare interface NEW {}
