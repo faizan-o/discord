@@ -22,11 +22,11 @@ export const metadata = {
     title: "Discord Clone",
     description:
       "Join the conversation with our Discord-inspired chat app. Connect, chat, and collaborate in real-time!",
-    url: "https://discord.vercel.app",
+    url: "https://discord0.up.railway.app",
     type: "website",
     images: [
       {
-        url: "https://discord.vercel.app/logo.png",
+        url: "https://discord0.up.railway.app/logo.png",
         width: 1200,
         height: 630,
         alt: "Discord Clone Open Graph Image",
