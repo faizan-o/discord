@@ -16,22 +16,18 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Discord",
-  description: "A modern chat application inspired by Discord.",
+  title: "Discord - A Modern Chat App",
+  description:
+    "A modern chat application inspired by Discord. Join the conversation with our Discord-inspired chat app. Connect, chat, and collaborate in real-time!",
+  keywords: ["discord", "clone", "chat", "audio", "video", "call", "server"],
   openGraph: {
-    title: "Discord",
+    title: "Discord - A Modern Chat App",
     description:
-      "Join the conversation with our Discord-inspired chat app. Connect, chat, and collaborate in real-time!",
-    url: "https://discord0.up.railway.app",
+      "A modern chat application inspired by Discord. Join the conversation with our Discord-inspired chat app. Connect, chat, and collaborate in real-time!",
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`],
+    siteName: "ZenMart",
+    url: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
     type: "website",
-    images: [
-      {
-        url: "https://discord0.up.railway.app/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Discord Clone Open Graph Image",
-      },
-    ],
   },
 };
 
