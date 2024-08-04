@@ -16,10 +16,10 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Discord Clone",
+  title: "Discord",
   description: "A modern chat application inspired by Discord.",
   openGraph: {
-    title: "Discord Clone",
+    title: "Discord",
     description:
       "Join the conversation with our Discord-inspired chat app. Connect, chat, and collaborate in real-time!",
     url: "https://discord0.up.railway.app",
