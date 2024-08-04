@@ -26,7 +26,7 @@ export const metadata = {
       "A modern chat application inspired by Discord. Join the conversation with our Discord-inspired chat app. Connect, chat, and collaborate in real-time!",
     images: [`${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`],
     siteName: "ZenMart",
-    url: new URL(process.env.NEXT_PUBLIC_SITE_URL as string),
+    url: new URL(process.env.NEXT_PUBLIC_SITE_URL || ""),
     type: "website",
   },
 };
