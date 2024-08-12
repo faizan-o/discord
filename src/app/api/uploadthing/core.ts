@@ -6,29 +6,15 @@ const f = createUploadthing();
 
 export const ourFileRouter = {
   serverImageUploader: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
-    .middleware(async ({ req }) => {
-      const user = await currentUser();
-
-      if (!user) throw new UploadThingError("User Is Not Authenticated");
-
-      return { userId: user.id };
-    })
     .onUploadComplete(async ({ metadata, file }) => {
-      return { uploadedBy: metadata.userId, file };
+      return { file };
     }),
   messageImageUploader: f({
     image: { maxFileSize: "4MB", maxFileCount: 1 },
     pdf: { maxFileSize: "4MB", maxFileCount: 1 },
   })
-    .middleware(async ({ req }) => {
-      const user = await currentUser();
-
-      if (!user) throw new UploadThingError("User Is Not Authenticated");
-
-      return { userId: user.id };
-    })
     .onUploadComplete(async ({ metadata, file }) => {
-      return { uploadedBy: metadata.userId, file };
+      return { file };
     }),
 } satisfies FileRouter;
 

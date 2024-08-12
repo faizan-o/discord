@@ -29,6 +29,7 @@ export const getCurrentUserServers = async (): Promise<
     });
     return server;
   } catch (err) {
+    console.log(err);
     return null;
   }
 };
@@ -61,6 +62,7 @@ export const getServerById = async (
     if (!member) return null;
     return server;
   } catch (err) {
+    console.log(err);
     return null;
   }
 };

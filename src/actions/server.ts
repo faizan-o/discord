@@ -11,7 +11,7 @@ import { getServerById } from "@/data/server";
 
 export const createServer = async (
   values: z.infer<typeof CreateServerSchema>
-): Promise<Server&{channels: Channel[]} | null> => {
+): Promise<(Server & { channels: Channel[] }) | null> => {
   const profile = await getCurrentUserProfile();
   if (!profile) return null;
   const validated = CreateServerSchema.safeParse(values);
@@ -40,12 +40,13 @@ export const createServer = async (
         },
       },
       include: {
-        channels: true
-      }
+        channels: true,
+      },
     });
 
     return newServer;
   } catch (err) {
+    console.log(err);
     return null;
   }
 };
@@ -134,7 +135,7 @@ export const addUserToServerByInviteCode = async (
         members: {
           include: { profile: true },
         },
-        channels: true
+        channels: true,
       },
     });
     if (!existingServer)
@@ -145,9 +146,9 @@ export const addUserToServerByInviteCode = async (
     if (existingMember)
       return {
         wasSuccessful: true,
-        message: `You Are Already A Member of ${ existingServer.name }`,
+        message: `You Are Already A Member of ${existingServer.name}`,
         serverId: existingServer.id,
-        channelId: existingServer.channels[0].id
+        channelId: existingServer.channels[0].id,
       };
     const server = await db.server.update({
       where: {

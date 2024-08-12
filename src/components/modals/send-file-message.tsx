@@ -99,7 +99,7 @@ const SendFileMessage = () => {
                         <>
                           <div className="flex justify-center items-center">
                             <Image
-                              src={"/file_icon.webp"}
+                              src={"/assets/file_icon.webp"}
                               alt="Server Image"
                               width={1920}
                               height={1080}
