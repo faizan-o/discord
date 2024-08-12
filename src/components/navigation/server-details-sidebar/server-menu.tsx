@@ -8,6 +8,7 @@ import {
   Tv,
   UserPlus,
   UserRoundCog,
+  type LucideIcon,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -16,12 +17,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../../ui/dropdown-menu";
-import { MemberRole, Profile } from "@prisma/client";
+import { MemberRole } from "@prisma/client";
 import { Separator } from "../../ui/separator";
-import { useEffect, useState } from "react";
 import { Button } from "../../ui/button";
-import { useModal } from "@/hooks/use-modal-store";
+import { ModalType, useModal } from "@/hooks/use-modal-store";
 import { useServerContext } from "@/components/providers/server-provider";
+import { cn } from "@/lib/utils";
 
 const ServerMenu = () => {
   const { currentProfile } = useServerContext();
@@ -30,12 +31,40 @@ const ServerMenu = () => {
   const { activeServer } = useServerContext();
 
   const isAdmin =
-    currentProfile && activeServer && activeServer.adminProfileId === currentProfile.id;
+    currentProfile &&
+    activeServer &&
+    activeServer.adminProfileId === currentProfile.id;
   const isModerator =
     currentProfile &&
     activeServer &&
-    activeServer.members.find((member) => member.profileId === currentProfile.id)
-      ?.role === MemberRole.MODERATOR;
+    activeServer.members.find(
+      (member) => member.profileId === currentProfile.id
+    )?.role === MemberRole.MODERATOR;
+
+  const MenuItem = ({
+    Icon,
+    modalType,
+    label,
+    buttonClassName,
+  }: {
+    Icon: LucideIcon;
+    modalType: ModalType;
+    label: string;
+    buttonClassName?: string;
+  }) => (
+    <DropdownMenuItem className="cursor-pointer pl-4 pr-8 py-2 w-full hover:bg-transparent bg-transparent" asChild>
+      <Button
+        className={cn(
+          "flex justify-start items-center space-x-3 focus-visible:ring-0 text-black dark:text-white bg-white dark:bg-[#1e1e22] dark:hover:bg-black rounded-none",
+          buttonClassName
+        )}
+        onClick={() => onOpen(modalType)}
+      >
+        <Icon className="w-4" />
+        <h1 className="text-sm">{label}</h1>
+      </Button>
+    </DropdownMenuItem>
+  );
 
   return (
     <DropdownMenu>
@@ -47,87 +76,53 @@ const ServerMenu = () => {
           <ChevronDown />
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="bg-transparent">
         <DropdownMenuGroup>
           {(isAdmin || isModerator) && (
             <>
-              <DropdownMenuItem
-                className="cursor-pointer pl-4 pr-8 w-full hover:bg-zinc-800 my-1"
-                asChild
-              >
-                <Button
-                  className="flex justify-start items-center space-x-3 focus-visible:ring-0 text-blue-500 bg-white hover:invert  dark:bg-black"
-                  onClick={() => onOpen("EditServer")}
-                >
-                  <FilePenLine className="w-4" />
-                  <h1 className="text-sm">Edit Server</h1>
-                </Button>
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="cursor-pointer pl-4 pr-8 hover:bg-zinc-800 w-full my-1"
-                asChild
-              >
-                <Button
-                  className="flex justify-start items-center space-x-3 focus-visible:ring-0 text-green-500 bg-white hover:invert  dark:bg-black"
-                  onClick={() => onOpen("InvitePeople")}
-                >
-                  <UserPlus className="w-4" />
-                  <h1 className="text-sm">Invite People</h1>
-                </Button>
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="cursor-pointer pl-4 pr-8 hover:bg-zinc-800 w-full my-1"
-                asChild
-              >
-                <Button
-                  className="flex justify-start items-center space-x-3 focus-visible:ring-0 bg-white text-black hover:invert dark:text-white dark:bg-black"
-                  onClick={() => onOpen("CreateChannel")}
-                >
-                  <Tv className="w-4" />
-                  <h1 className="text-sm">Create Channel</h1>
-                </Button>
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="cursor-pointer pl-4 pr-8 hover:bg-zinc-800 w-full my-1"
-                asChild
-              >
-                <Button
-                  className="flex justify-start items-center space-x-3 focus-visible:ring-0 bg-white text-black hover:invert dark:text-white dark:bg-black"
-                  onClick={() => onOpen("ManageMembers")}
-                >
-                  <UserRoundCog className="w-4" />
-                  <h1 className="text-sm">Manage Members</h1>
-                </Button>
-              </DropdownMenuItem>
+              <MenuItem
+                Icon={FilePenLine}
+                modalType="EditServer"
+                label="Edit Server"
+                buttonClassName="text-blue-500 dark:text-blue-500"
+              />
+              <MenuItem
+                Icon={UserPlus}
+                modalType="InvitePeople"
+                label="Invite People"
+                buttonClassName="text-green-500 dark:text-green-500"
+              />
+              <MenuItem
+                Icon={Tv}
+                modalType="CreateChannel"
+                label="Create Channel"
+              />
+              <MenuItem
+                Icon={UserRoundCog}
+                modalType="ManageMembers"
+                label="Manage Members"
+              />
             </>
           )}
           {isAdmin && (
-            <DropdownMenuItem
-              className="cursor-pointer pl-4 pr-8 w-full hover:bg-zinc-800 my-1"
-              asChild
-            >
-              <Button
-                className="flex justify-start items-center space-x-3 focus-visible:ring-0 text-red-500 bg-white hover:invert  dark:bg-black"
-                onClick={() => onOpen("DeleteServer")}
-              >
-                <Trash className="w-4" />
-                <h1 className="text-sm">Delete Server</h1>
-              </Button>
-            </DropdownMenuItem>
+            <>
+              <MenuItem
+                Icon={Trash}
+                modalType="DeleteServer"
+                label="Delete Server"
+                buttonClassName="text-rose-500 dark:text-rose-500"
+              />
+            </>
           )}
           {!isAdmin && (
-            <DropdownMenuItem
-              className="cursor-pointer pl-4 pr-8 w-full hover:bg-zinc-800 my-1"
-              asChild
-            >
-              <Button
-                className="flex justify-start items-center space-x-3 focus-visible:ring-0 text-red-500 bg-white hover:invert  dark:bg-black"
-                onClick={() => onOpen("LeaveServer")}
-              >
-                <LogOut className="w-4" />
-                <h1 className="text-sm">Leave Server</h1>
-              </Button>
-            </DropdownMenuItem>
+            <>
+              <MenuItem
+                Icon={LogOut}
+                modalType="LeaveServer"
+                label="Leave Server"
+                buttonClassName="text-rose-500 dark:text-rose-500"
+              />
+            </>
           )}
           <Separator />
         </DropdownMenuGroup>

@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { ServerWithChannelAndMembers } from "../..";
 import { Channel, ChannelType } from "@prisma/client";
 
-type ModalType =
+export type ModalType =
   | "CreateServer"
   | "EditServer"
   | "InvitePeople"
