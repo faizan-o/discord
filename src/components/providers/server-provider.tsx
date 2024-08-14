@@ -75,8 +75,7 @@ export const ServerContextProvider = ({
         router.push(
           `/servers/${fetchedServers[0].id}/channels/${fetchedServers[0].channels[0].id}`
         );
-      if (!fetchedServers || fetchedServers.length === 0)
-        setTimeout(() => setIsFetching(false), 3000);
+      if (!fetchedServers || fetchedServers.length === 0) setIsFetching(false);
     };
     fetchServers();
   }, [router, pathname]);
@@ -89,7 +88,7 @@ export const ServerContextProvider = ({
         if (!server) router.push("/");
         setActiveServer(server);
       }
-      setTimeout(() => setIsFetching(false), 3000);
+      setIsFetching(false);
     };
     if (serverId) {
       fetchServer();
